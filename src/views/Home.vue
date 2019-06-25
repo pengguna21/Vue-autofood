@@ -121,7 +121,7 @@
     <!-- fourth content -->
     <div class="fourth-content">
       <img src="../assets/Download stripe background.svg" alt="background-content" class="fourth-background">
-      <div class="card text-center">
+      <div class="offset-md-3 col-md-6 card text-center">
         <div class="card-body">
           <h5 class="card-title">Unduh <img src="../assets/logo-autofood.svg" alt="logo" class="ml-4"></h5>
           <p class="card-text">Unduh dan pasang aplikasi Autofood di handphone anda sekarang juga. Tersedia pada iOS dan Android.</p>
@@ -300,10 +300,8 @@ export default {
     height: 600px;
 
     .card{
-      width: 50%;
       position: relative;
       top: -150px;
-      left: 25%;
       padding: 3rem 5rem;
 
       .list-group{

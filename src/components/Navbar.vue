@@ -18,7 +18,7 @@
                         <router-link to="/" class="nav-link">layanan</router-link>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-outline-dark">Mulai di sini</button>
+                        <router-link to="/category" class="btn btn-outline-dark">Mulai di sini</router-link>
                     </li>
                 </ul>
             </div>

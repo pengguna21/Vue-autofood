@@ -68,6 +68,11 @@ export default {
     
         .container{
             padding: 4rem 0;
+
+            .row{
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
     }
 
