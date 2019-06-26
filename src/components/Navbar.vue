@@ -26,18 +26,18 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul class="list-group">
-                                <li class="list-group-item" v-for="item in carts" :key="item.idFood">
+                                <li class="list-group-item" v-for="(item, index) in carts" :key="index">
                                     <div class="media">
                                         <img :src="item.foodImage" class="mr-3" alt="" width="50px">
                                         <div class="media-body">
                                             <p>{{ item.foodName }}</p>
-                                            <p>Qty : {{ item.qty }} <!--<button class="btn btn-danger"><i class="fa fa-trash"></i></button>--> </p>
+                                            <p>Qty : {{ item.qty }} <button class="btn btn-danger" @click="removeItem(index)"><i class="fa fa-trash"></i></button> </p>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
-                            <div class="dropdown-divider"></div>
-                            <button class="btn btn-success float-right mr-2" @click="clickCheckout()">Checkout</button>
+                            <div class="dropdown-divider" v-if="carts != ''"></div>
+                            <button class="btn btn-success float-right mr-2" @click="clickCheckout()" v-if="carts != ''">Checkout</button>
                         </div>
                     </li>
                 </ul>
@@ -57,6 +57,9 @@ export default {
     methods: {
         clickCheckout: function () {
             this.$store.commit('saveCart')
+        },
+        removeItem: function (index) {
+            this.$store.state.data.carts.splice(index, 1)
         }
     },
 }

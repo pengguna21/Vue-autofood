@@ -99,7 +99,7 @@
                 <div class="card-body">
                   <h5 class="card-title mb-5">Pembayaran</h5>
                   <img src="../assets/Pembayaran.svg" class="card-img-top mb-5" alt="order">
-                  <p class="card-text">Pembayaran semakin mudah terintegrasi dengan Virtual payment seperti Ovo, Dana, dan Mobile banking dari bank ternama.</p>
+                  <p class="card-text">Pembayaran semakin mudah terintegrasi dengan Virtual payment seperti Ovo, Dana, dan Mobile banking dari bank ternama. Anda dapat memesan makanan ke restaurant favorit di sekitar. Memudahkan pembelian makanan tanpa harus mengantri</p>
                 </div>
               </div>
             </div>
@@ -138,19 +138,19 @@
     </div>
     <!-- ./fourth content -->
 
-    <Footer />
+    <Footerpart />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
+import Footerpart from '@/components/Footerpart.vue'
 
 export default {
   name: 'home',
   components: {
     Navbar,
-    Footer
+    Footerpart
   }
 }
 </script>

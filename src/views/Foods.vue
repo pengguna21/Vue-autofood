@@ -11,6 +11,7 @@
           <hr>
         </div>
       </div>
+      {{local}}
       <div class="row">
         <div class="col-md-3" v-for="item in foods" :key="item.idMeal">
           <a class="card-link" data-toggle="modal" data-target="#clickFood" @click="showFood(item.idMeal)">
@@ -67,20 +68,20 @@
       </div>
     </div>
 
-    <Footer />
+    <Footerpart />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
+import Footerpart from '@/components/Footerpart.vue'
 import axios from 'axios'
 
 export default {
   name: 'detail',
   components: {
     Navbar,
-    Footer
+    Footerpart
   },
   data() {
     return {
@@ -89,7 +90,8 @@ export default {
       detailFood: '',
       qtyBuy: '',
       isTrue: false,
-      isFalse: false
+      isFalse: false,
+      local: ''
     }
   },
   mounted: function(){
@@ -101,6 +103,10 @@ export default {
     .catch(function (error) {
       this.error = error
     });
+    var asd = JSON.parse(localStorage.getItem("orders"))
+    var as = asd[1]
+    var zx = as.shopCart
+    this.local = zx[0].foodName
   },
   methods: {
     showFood: function (idFood) {

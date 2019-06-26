@@ -29,22 +29,25 @@ export default new Vuex.Store({
       itemFood = ''
     },
     saveCart(state) {
-      const cartItem = [
-        {
-          order: 1,
-          shopCart: state.data.carts
-        }
-      ]
       state.data.orders = JSON.parse(localStorage.getItem("orders"))
       if (state.data.orders == null) {
+        const cartItem = [
+          {
+            status: 'success',
+            shopCart: state.data.carts
+          }
+        ]
         const final = JSON.stringify(cartItem)
         localStorage.setItem("orders", final) 
       } else {
+        const cartItem = {
+          status: 'success',
+          shopCart: state.data.carts
+        }
         state.data.orders.push(cartItem)
         const final = JSON.stringify(state.data.orders)
         localStorage.setItem("orders", final)
       }
-      
       state.data.carts = []
     }
   },

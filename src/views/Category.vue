@@ -24,20 +24,20 @@
       </div>
     </div>
 
-    <Footer />
+    <Footerpart />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import Footer from '@/components/Footer.vue'
+import Footerpart from '@/components/Footerpart.vue'
 import axios from 'axios'
 
 export default {
   name: 'category',
   components: {
     Navbar,
-    Footer
+    Footerpart
   },
   data() {
     return {
