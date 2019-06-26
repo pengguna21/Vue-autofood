@@ -21,7 +21,7 @@
 
     &:hover{
       background-color: $primary;
-      box-shadow: 0px 10px 15px $primary;
+      box-shadow: 0px 3px 10px $primary;
       border: none;
     }
   }

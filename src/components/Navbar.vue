@@ -20,6 +20,26 @@
                     <li class="nav-item">
                         <router-link to="/category" class="btn btn-outline-dark">Mulai di sini</router-link>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-shopping-cart"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="list-group">
+                                <li class="list-group-item" v-for="item in orders" :key="item.idFood">
+                                    <div class="media">
+                                        <img :src="item.foodImage" class="mr-3" alt="" width="50px">
+                                        <div class="media-body">
+                                            <p>{{ item.foodName }}</p>
+                                            <p>Qty : {{ item.qty }} <!--<button class="btn btn-danger"><i class="fa fa-trash"></i></button>--> </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="dropdown-divider"></div>
+                            <button class="btn btn-success float-right mr-2" >Checkout</button>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -28,7 +48,12 @@
 
 <script>
 export default {
-    name: 'navbar'
+    name: 'navbar',
+    computed: {
+        orders() {
+            return this.$store.state.data.orders
+        }
+    },
 }
 </script>
 
