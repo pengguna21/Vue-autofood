@@ -6,12 +6,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     data: {
-      orders: [],
+      carts: [],
+      orders: []
     }
   },
   mutations: {
     addOrder(state, {id, foodName, foodImage, qty}) {
-      var itemFood = state.data.orders.find(orders => orders.idFood == id)
+      var itemFood = state.data.carts.find(carts => carts.idFood == id)
       if (itemFood) {
         var oldQty = parseInt(itemFood.qty, 10)
         var addQty = parseInt(qty)
@@ -23,9 +24,28 @@ export default new Vuex.Store({
           foodImage: foodImage,
           qty: qty
         }
-        state.data.orders.push(addItem)
+        state.data.carts.push(addItem)
       }
       itemFood = ''
+    },
+    saveCart(state) {
+      const cartItem = [
+        {
+          order: 1,
+          shopCart: state.data.carts
+        }
+      ]
+      state.data.orders = JSON.parse(localStorage.getItem("orders"))
+      if (state.data.orders == null) {
+        const final = JSON.stringify(cartItem)
+        localStorage.setItem("orders", final) 
+      } else {
+        state.data.orders.push(cartItem)
+        const final = JSON.stringify(state.data.orders)
+        localStorage.setItem("orders", final)
+      }
+      
+      state.data.carts = []
     }
   },
   actions: {

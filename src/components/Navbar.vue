@@ -26,7 +26,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul class="list-group">
-                                <li class="list-group-item" v-for="item in orders" :key="item.idFood">
+                                <li class="list-group-item" v-for="item in carts" :key="item.idFood">
                                     <div class="media">
                                         <img :src="item.foodImage" class="mr-3" alt="" width="50px">
                                         <div class="media-body">
@@ -37,7 +37,7 @@
                                 </li>
                             </ul>
                             <div class="dropdown-divider"></div>
-                            <button class="btn btn-success float-right mr-2" >Checkout</button>
+                            <button class="btn btn-success float-right mr-2" @click="clickCheckout()">Checkout</button>
                         </div>
                     </li>
                 </ul>
@@ -50,8 +50,13 @@
 export default {
     name: 'navbar',
     computed: {
-        orders() {
-            return this.$store.state.data.orders
+        carts() {
+            return this.$store.state.data.carts
+        }
+    },
+    methods: {
+        clickCheckout: function () {
+            this.$store.commit('saveCart')
         }
     },
 }
