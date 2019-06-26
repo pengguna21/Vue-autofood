@@ -1,5 +1,13 @@
 # vue-autofood
 
+## Deskripsi
+Aplikasi pemesanan makanan, anda dapat memesan makanan pada aplikasi ini
+
+## Stack
+- Axios
+- Vuex
+- Vue router
+
 ## Project setup
 ```
 npm install
